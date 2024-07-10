@@ -70,22 +70,9 @@ public class ShopController {
     public String searchIngredient(@RequestParam("keyword") String keyword,
                                    Model model) {
         try {
-//            model.addAttribute("categories", categoryService.getListCategory());
-//
-//            model.addAttribute("brands", brandService.getListBrand());
             List<Ingredient> list = ingredientService.searchIngredients(keyword);
             model.addAttribute("data", list);
-//            model.addAttribute("data", productService.searchProducts(page, size, keyword));
-//            if (list.isEmpty()){
-//                System.out.println("Hong cos");
-//                System.err.println("NONEEEEEEEEE");
-//            }
-//            System.out.println("haaaaaaa");
             model.addAttribute("currentPath", "/thanh-phan");
-//            for (Ingredient n: list
-//                 ) {
-//                System.out.println(n.getName());
-//            }
 
         } catch (NotFoundException ex) {
             return "error/404";
